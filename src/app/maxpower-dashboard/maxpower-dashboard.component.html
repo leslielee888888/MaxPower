@@ -1,0 +1,69 @@
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title info">
+                    <i class="icon-info"></i> Welcome First Name Referrer</h4>
+            </div>
+            <div class="card-body">
+                <div class="card-block">
+                    <!-- <h4 class="card-title info">
+                        <i class="icon-info"></i> Welcome First Name Referrer</h4> -->
+                    <p class="card-text">MaxPower is here to help you to become a successful loan aggregator. Build your team and let the team
+                        work for you while earning a lucrative passive income.</p>
+                    <p class="card-text">If you have any questions or suggestions, please feel free to contact
+                        <a href="./">our Partner Relationship Team</a>, they are here to help you! </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header pb-0">
+                <div class="row">
+                    <div class="col-md-3">
+                        <!-- <select class="custom-select form-control mb-2 border-primary" [(ngModel)]='select' (ngModelChange)="onSelect(select)" >
+                            <option [ngValue]='option' *ngFor="let option of selectOptions">{{option.label}}</option>
+                        </select> -->
+                        <app-date-selector (onChange)='onDateChange($event)'></app-date-selector>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6" style="border-right: 1px solid #dee2e6">
+                        <div class="card mb-0">
+                            <div class="card-header pt-0">
+                                <h4 class="text-primary ">
+                                    <i class="fa fa-th-large"></i>&nbsp;
+                                    <strong>Team Summary – Level 1</strong>
+                                </h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="px-3">
+                                    <ng2-smart-table [settings]="MaxpowerDashboardTableSettings" [source]="level1$ | async"></ng2-smart-table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-header pt-0">
+                                <h4 class="text-primary">
+                                    <i class="fa fa-th-large"></i>&nbsp;
+                                    <strong>Sub-Team Summary – Level 2</strong>
+                                </h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="px-3 mb-3">
+                                    <ng2-smart-table [settings]="MaxpowerDashboardSubTableSettings" [source]="level2$ | async"></ng2-smart-table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,58 @@
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header text-primary">
+                <h4 class="card-title ">
+                    <i class="fa fa-th-large"></i>&nbsp;Team earning</h4>
+            </div>
+            <div class="card-body">
+                <div class="card-block">
+                    <div class="row">
+                        <div class="col-md-6">
+                            Pending Commission:
+                            <strong class="text-primary">{{pedding_commission$|async|currency:'$':'symbol':'0.0'}}</strong>
+                        </div>
+                        <div class="col-md-6">
+                            Received Commission:
+                            <strong class="text-primary">{{receive_commission$|async|currency:'$':'symbol':'0.0'}}</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header ">
+                <h4 class="text-primary card-title">
+                    <i class="fa fa-th-large"></i>&nbsp;
+                    Pending Earnings
+                </h4>
+            </div>
+            <div class="card-body">
+                <div class="px-3">
+                    <ng2-smart-table [settings]="MaxpowerPendingEarningsTableSettings" [source]="pengdingEarnings$ | async"></ng2-smart-table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card ">
+            <div class="card-header clearfix">
+                <h4 class="text-primary card-title pull-left">
+                    <i class="fa fa-th-large"></i>&nbsp;Received Earning
+                </h4>
+                <div class="pull-right">
+                    <app-date-selector (onChange)='onDateChange($event)' defaultSelect="3"></app-date-selector>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="px-3">
+                    <ng2-smart-table [settings]="MaxpowerReceivedEarningsTableSettings" [source]="receivedEarnings$ | async"></ng2-smart-table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

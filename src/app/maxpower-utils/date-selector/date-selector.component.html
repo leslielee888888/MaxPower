@@ -1,0 +1,3 @@
+<select class="custom-select form-control mb-0 border-primary" [(ngModel)]='select' (ngModelChange)="onSelect(select)" >
+  <option [ngValue]='option' *ngFor="let option of selectOptions">{{option.label}}</option>
+</select>

@@ -1,0 +1,154 @@
+<div class="card mb-0">
+  <div class="card-header pb-0">
+    <div class="card-title">
+      <h5>
+        <code>Member Profile</code>
+      </h5>
+      <small *ngIf='isEditModule' class="text-muted" >ABN&nbsp;:&nbsp;{{member.ABN}}</small>
+    </div>
+  </div>
+  <div class="card-body px-3">
+    <form class="form" [formGroup]='memberForm'>
+      <div class="form-body">
+        <div class="row">
+          <div class="col-md-6" *ngIf='!isEditModule'>
+            <div class="form-group">
+              <label for="ABN">ABN&nbsp;
+                <code><i class="fa fa-star-o"></i></code>
+              </label>
+              <div class="position-relative has-icon-right">
+                <input [readonly]='!canEdit' (input)='onChange()' type="text" id="ABN" class="form-control" formControlName='ABN' [(ngModel)]='member.ABN' name="ABN" appFormatter='abn' >
+                <div class="form-control-position danger">
+                  <i class="ft-x"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="company_name">Company Name&nbsp;
+                <code><i class="fa fa-star-o"></i></code>
+              </label>
+              <div class="position-relative has-icon-right">
+                <input [readonly]='!canEdit' (input)='onChange()' type="text" id="company_name" class="form-control" formControlName='company_name' [(ngModel)]='member.company_name'
+                  name="company_name" appFormatter>
+                <div class="form-control-position danger">
+                  <i class="ft-x"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="contact_person">Contact Name&nbsp;
+                <code><i class="fa fa-star-o"></i></code>
+              </label>
+              <div class="position-relative  has-icon-right">
+                <input [readonly]='!canEdit'(input)='onChange()' type="text" id="contact_person" class="form-control" formControlName='contact_person' [(ngModel)]='member.contact_person'
+                  name="contact_person" appFormatter='fullname'>
+                <div class="form-control-position danger">
+                  <i class="ft-x"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="contact_number">Mobile Number&nbsp;
+                <code><i class="fa fa-star-o"></i></code>
+              </label>
+              <div class="position-relative has-icon-right">
+                <input [readonly]='!canEdit'(input)='onChange()' type="text" id="contact_number" class="form-control" formControlName='contact_number' [(ngModel)]='member.contact_number'
+                  name="contact_number" appFormatter='phone'>
+                <div class="form-control-position danger">
+                  <i class="ft-x"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="other_phone">Other Phone Number
+              </label>
+              <div class="position-relative has-icon-right">
+                <input [readonly]='!canEdit'(input)='onChange()' type="text" id="other_phone" class="form-control" formControlName='other_phone' [(ngModel)]='member.other_phone' name="other_phone"
+                  appFormatter='phone'>
+                <div class="form-control-position danger">
+                  <i class="ft-x"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="email">Email&nbsp;
+                <code><i class="fa fa-star-o"></i></code>
+              </label>
+              <div class="position-relative has-icon-right">
+                <input [readonly]='!canEdit'(input)='onChange()' type="text" id="email" class="form-control" formControlName='email' [(ngModel)]='member.email' name="email" appFormatter='email'>
+                <div class="form-control-position danger">
+                  <i class="ft-x"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="website">Website
+              </label>
+              <div class="position-relative has-icon-right">
+                <input [readonly]='!canEdit'(input)='onChange()' type="text" id="website" class="form-control" formControlName='website' [(ngModel)]='member.website' name="website">
+                <!-- <div class="form-control-position danger">
+                  <i class="ft-x"></i>
+                </div> -->
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="nature">Nature of Business&nbsp;
+                <code><i class="fa fa-star-o"></i></code>
+              </label>
+              <input readonly *ngIf='!canEdit' type="text" id="nature" class="form-control" formControlName='nature' [(ngModel)]='member.nature' name="nature">
+              <div class="position-relative has-icon-right" *ngIf='canEdit'>
+                <!-- <input [attr.disabled]='!canEdit'(input)='onChange()' type="text" id="timesheetinput (input)='onChange()'2" class="form-control" name="projectname" > -->
+                <select  (change)='onChange()' id="nature" class="form-control" aria-required="true" formControlName='nature' [(ngModel)]='member.nature' name="nature"
+                  appFormatter>
+                  <option value="">- Select -</option>
+                  <option value="Finance Broker">Finance Broker</option>
+                  <option value="Car Finance Broker">Car Finance Broker</option>
+                  <option value="Pawn Broker">Pawn Broker</option>
+                  <option value="Debt Agreement">Debt Agreement</option>
+                  <option value="Lead Generator">Lead Generator</option>
+                  <option value="Financer">Financer</option>
+                  <option value="Accountant">Accountant</option>
+                  <option value="Solicitor">Solicitor</option>
+                  <option value="Financial Planner">Financial Planner</option>
+                  <option value="Franchising">Franchising</option>
+                  <option value="Business Broker">Business Broker</option>
+                  <option value="Business Finance Broker">Business Finance Broker</option>
+                  <option value="B2B Services">B2B Services</option>
+                  <option value="Others">Others</option>
+                </select>
+                <div class="form-control-position danger">
+                  <i class="ft-x"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-actions clearfix">
+        <div class="pull-left">
+             <app-auto-save [autosave]='autosave'></app-auto-save> 
+        </div>
+        <button type="button" *ngIf='!isEditModule' (click)='onSubmit()' class="btn btn-raised btn-success pull-right">
+          <i class="fa fa-check-square-o"></i> Submit
+        </button>
+        <button type="button" *ngIf='isEditModule' (click)='openEdit()' class="btn btn-raised btn-primary pull-right">
+          <i class="fa fa-check-square-o"></i> Edit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

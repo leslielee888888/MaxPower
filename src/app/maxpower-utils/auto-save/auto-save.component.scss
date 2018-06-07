@@ -1,0 +1,9 @@
+.container{
+    position: relative;
+    .autosave-span{
+        position: absolute;
+        left: 0;
+        top: 0;
+        white-space: nowrap;
+    }
+}

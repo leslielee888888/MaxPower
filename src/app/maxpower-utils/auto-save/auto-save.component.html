@@ -1,0 +1,19 @@
+<!-- <div class="container " [ngClass]="{'hide':!autosave}"> -->
+<div class="container " [ngClass]="{'hide':!autosave}">
+  <span [@flyInOut]='"in"' class="text-primary  autosave-span display-inline-block" *ngIf='autosave==="saving"'  >
+    <i class="ft-refresh-cw valign-middle spinner"></i> &nbsp;
+    <span class="valign-middle">Saving</span>
+  </span>
+  <span [@flyInOut]='"in"' class="text-success autosave-span display-inline-block" *ngIf='autosave==="success"'  >
+    <i class="ft-check valign-middle"></i> &nbsp;
+    <span class="valign-middle">Success</span>
+  </span>
+  <span [@flyInOut]='"in"' class="text-danger autosave-span display-inline-block" *ngIf='autosave==="fail"'  >
+    <i class="ft-x valign-middle"></i> &nbsp;
+    <span class="valign-middle">Fail</span>
+  </span>
+  <!-- <span [@flyInOut]='"in"' *ngIf='autosave==="saving"' class="text-primary animated autosave-span">
+    <i class="ft-refresh-cw valign-middle spinner"></i> &nbsp;
+    <span class="valign-middle">Saving</span>
+  </span> -->
+</div>

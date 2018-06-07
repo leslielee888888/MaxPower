@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="col-md-8">
+    <div class="card">
+      <div class="card-header clearfix">
+        <h4 class="text-primary pull-left">
+          <i class="fa fa-th-large"></i>&nbsp;
+          <strong>Member Management</strong>
+        </h4>
+        <button class="btn btn-raised btn-primary pull-right" (click)='showAddModal()'><i class="ft-plus"></i> Add Member</button>
+      </div>
+      <div class="card-body">
+        <div class="px-3">
+          <ng2-smart-table [settings]=" MaxpowerMemberTableSettings" [source]="members$ | async"></ng2-smart-table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-8">
+    <div class="card">
+      <div class="card-header clearfix">
+        <h4 class="text-primary pull-left">
+          <i class="fa fa-th-large"></i>&nbsp;
+          <strong>Pending Member Management</strong>
+        </h4>
+      </div>
+      <div class="card-body">
+        <div class="px-3">
+          <ng2-smart-table [settings]=" MaxpowerPendingMemberTableSettings" [source]="pendingMembers$ | async"></ng2-smart-table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

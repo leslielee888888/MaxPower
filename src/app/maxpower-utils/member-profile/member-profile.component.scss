@@ -1,0 +1,13 @@
+.ng-invalid.ng-dirty{
+    &+ .form-control-position.danger{
+        visibility: visible;
+    }
+}
+input:focus{
+    &+ .form-control-position.danger{
+        visibility: hidden !important;
+    }
+}
+.form-control-position.danger{
+    visibility: hidden;
+}
