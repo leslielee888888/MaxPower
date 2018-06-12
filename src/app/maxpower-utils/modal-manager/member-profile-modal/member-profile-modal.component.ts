@@ -19,7 +19,7 @@ export class MemberProfileModalComponent implements OnInit {
     //console.log(this.memberProfile);
   }
 
-  d() {
+  d(value) {
     this.ngbActiveModal.dismiss();
     /* this.store.dispatch({
       type: CLOSE_MEMBER_PROFILE_MODAL,

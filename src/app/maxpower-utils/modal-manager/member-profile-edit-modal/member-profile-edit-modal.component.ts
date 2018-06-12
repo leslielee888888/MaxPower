@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { CLOSE_MEMBER_PROFILE_MODAL, CLOSE_MEMBER_PROFILE_EDIT_MODAL } from '../../../maxpower-reducer/reducers/modal-reducer';
 import { MEMBER_QUERY } from '../../../maxpower-reducer/reducers/member-reducer';
@@ -10,13 +10,13 @@ import { MEMBER_QUERY } from '../../../maxpower-reducer/reducers/member-reducer'
   encapsulation: ViewEncapsulation.None
 })
 export class MemberProfileEditModalComponent implements OnInit {
-
+  @Input() eid;
   constructor(private store: Store<any>) { }
 
   ngOnInit() {
   }
 
-  d() {
+  d(value) {
     //this.ngbActiveModal.close(CLOSE_MEMBER_PROFILE_MODAL);
     this.store.dispatch({
       type: CLOSE_MEMBER_PROFILE_EDIT_MODAL

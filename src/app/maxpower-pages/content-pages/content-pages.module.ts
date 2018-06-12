@@ -5,6 +5,7 @@ import { ContentPagesRoutingModule } from './content-pages-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaxpowerUtilsModule } from '../../maxpower-utils/maxpower-utils.module';
 import { ComingSoonPageComponent } from './coming-soon/coming-soon-page.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   imports: [
@@ -14,6 +15,6 @@ import { ComingSoonPageComponent } from './coming-soon/coming-soon-page.componen
     ReactiveFormsModule,
     MaxpowerUtilsModule
   ],
-  declarations:  [ComingSoonPageComponent]
+  declarations: [ComingSoonPageComponent, LoginComponent]
 })
 export class ContentPagesModule { }

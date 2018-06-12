@@ -23,7 +23,7 @@ export class MemberProfileComponent implements OnInit {
   @Input() eid: any;
   canEdit: boolean = false;
   member$: Observable<any>;
-  private member = {
+  member = {
     company_name: '',
     contact_number: '',
     contact_person: '',

@@ -66,8 +66,8 @@
             }
           }
         },
-        "devServer":{
-          "builder":"@angular-devkit/build-angular:dev-server",
+        "devServer": {
+          "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
             "browserTarget": "MaxPower:build"
           },
@@ -140,6 +140,46 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": "e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "leslie-formatter": {
+      "root": "projects/leslie-formatter",
+      "sourceRoot": "projects/leslie-formatter/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/leslie-formatter/tsconfig.lib.json",
+            "project": "projects/leslie-formatter/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/leslie-formatter/ng-package.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/leslie-formatter/src/test.ts",
+            "tsConfig": "projects/leslie-formatter/tsconfig.spec.json",
+            "karmaConfig": "projects/leslie-formatter/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/leslie-formatter/tsconfig.lib.json",
+              "projects/leslie-formatter/tsconfig.spec.json"
+            ],
             "exclude": [
               "**/node_modules/**"
             ]

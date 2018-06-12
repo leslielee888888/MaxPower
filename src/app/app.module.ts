@@ -6,7 +6,7 @@ import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 // import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 // import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 // import { StoreModule } from '@ngrx/store';
@@ -40,9 +40,9 @@ import { MaxpowerUtilsModule } from './maxpower-utils/maxpower-utils.module';
     imports: [
         BrowserAnimationsModule,
         // StoreModule.forRoot({}),
+        HttpClientModule,
         AppRoutingModule,
         SharedModule,
-        HttpClientModule,
         NgbModule.forRoot(),
         MaxpowerReducerModule,
         MaxpowerUtilsModule

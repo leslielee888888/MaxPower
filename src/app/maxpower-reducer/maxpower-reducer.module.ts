@@ -17,6 +17,8 @@ import { ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { ModalReducer } from './reducers/modal-reducer';
 import { EarningsReducer } from './reducers/earnings-reducer';
 import { EarningsEffectService } from './effects/earnings-effect.service';
+import { LoginReducer } from './reducers/login-reducer';
+import { LoginEffectService } from './effects/login-effect.service';
 
 
 @NgModule({
@@ -28,7 +30,8 @@ import { EarningsEffectService } from './effects/earnings-effect.service';
       member: MemberProfileReducer,
       swal: SwalReducer,
       modal: ModalReducer,
-      earnings: EarningsReducer
+      earnings: EarningsReducer,
+      login:LoginReducer
     }),
     EffectsModule.forRoot([
       DashboardEffectService,
@@ -36,7 +39,8 @@ import { EarningsEffectService } from './effects/earnings-effect.service';
       MemberProfileEffectService,
       SwalEffectsService,
       ModalEffectsService,
-      EarningsEffectService
+      EarningsEffectService,
+      LoginEffectService
     ]),
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states

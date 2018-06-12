@@ -11,11 +11,13 @@ import { MaxpowerTableColumnComponentModule } from '../maxpower-table-column-com
 import { DateSelectorComponent } from './date-selector/date-selector.component';
 import { MaxpowerReducerModule } from '../maxpower-reducer/maxpower-reducer.module';
 import { SharedModule } from '../shared/shared.module';
-import { FormatterDirective } from './directives/formatter.directive';
 import { MemberProfileModalComponent } from './modal-manager/member-profile-modal/member-profile-modal.component';
 import { AutoSaveComponent } from './auto-save/auto-save.component';
 import { MemberProfileEditModalComponent } from './modal-manager/member-profile-edit-modal/member-profile-edit-modal.component';
-import { LesFormatterModule } from 'leslie-formatter';
+// import { LesFormatterModule } from 'src/app/les-formatter/les-formatter.module';
+// import { FormatterDirective } from '../les-formatter/formatter.directive';
+import { LeslieFormatterModule } from 'leslie-formatter';
+// import { LesFormatterModule } from 'leslie-formatter';
 
 @NgModule({
   imports: [
@@ -25,7 +27,7 @@ import { LesFormatterModule } from 'leslie-formatter';
     ReactiveFormsModule,
     Ng2SmartTableModule,
     MaxpowerTableColumnComponentModule,
-    LesFormatterModule
+    LeslieFormatterModule
   ],
   declarations: [
     CustomDatePickerComponent,

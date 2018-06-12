@@ -9,11 +9,10 @@ import { CurrencyPipe, UpperCasePipe } from '@angular/common';
 export class FormatterDirective implements OnInit {
   hasChange = false;
   INIT = true;
-  fomatter:
-    { name: string; fomatter: (value: string) => string; regex?: RegExp; }
-  @Input() appFormatter;
-  @Input() formatFn;
-  @Input() ngModel;
+  fomatter: any;
+  @Input() appFormatter: any;
+  @Input() formatFn: any;
+  @Input() ngModel: any;
   ngControl: NgControl;
   FOMATTER_MAP = [
     {
@@ -36,11 +35,16 @@ export class FormatterDirective implements OnInit {
     {
       name: 'currency',
       fomatter: (value: string) => {
-        const rs = value && value.replace(/[^0-9]/g, '');
-        if (rs && /^[0-9]+$/.test(rs)) {
-          return this.currencyPipe.transform(rs, ' ', "symbol", "0.0").trim();
+        let rs: any = value && value.replace(/[^0-9]/g, '');
+        if (rs && /^[0-9]+$/.test(rs) && this.currencyPipe) {
+          rs = this.currencyPipe.transform(rs, ' ', "symbol", "0.0");
+          if (rs) {
+            return rs.trim();
+          }
+          else {
+            return rs;
+          }
         }
-        return rs;
       },
       regex: /^[0-9,]{1,}$/
     },
@@ -61,7 +65,7 @@ export class FormatterDirective implements OnInit {
       fomatter: (value: string) => {
         const rs = value && value.replace(/[^A-Za-z ]/g, '');
         if (rs) {
-          return rs.replace(/\b\w/g, function(l){ return l.toUpperCase()});
+          return rs.replace(/\b\w/g, function (l) { return l.toUpperCase() });
           // return this.uppercasePipe.transform(rs[0]) + rs.slice(1);
         }
         return rs;
@@ -89,18 +93,19 @@ export class FormatterDirective implements OnInit {
     this.ngControl = ngControl;
   }
 
-  @HostListener('focus', ['$event']) onFocus(event) {
-    this.ngControl.control.markAsPending();
+  @HostListener('focus', ['$event']) onFocus(event: any) {
+    if (this.ngControl.control)
+      this.ngControl.control.markAsPending();
   }
 
-  @HostListener('blur', ['$event']) onBlur(event) {
-    if (this.hasChange) {
+  @HostListener('blur', ['$event']) onBlur(event: any) {
+    if (this.hasChange && this.ngControl.control) {
       this.ngControl.control.updateValueAndValidity();
     }
   }
 
-  @HostListener('input', ['$event']) onInput(event) {
-    if (this.fomatter) {
+  @HostListener('input', ['$event']) onInput(event: any) {
+    if (this.fomatter && this.ngControl.control) {
       const v = this.format(event.target.value);
       this.ngControl.control.patchValue(v);
     };
@@ -109,9 +114,9 @@ export class FormatterDirective implements OnInit {
   }
 
 
-  make_formatter(value) {
-    return (f) => {
-      return (fn?) => fn ? fn(value) : f(value);
+  make_formatter(value: any) {
+    return (f: any) => {
+      return (fn?: any) => fn ? fn(value) : f(value);
     }
   }
 

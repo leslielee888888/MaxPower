@@ -14,7 +14,7 @@ import { Full_ROUTES } from './shared/routes/full-layout.routes';
 const appRoutes: Routes = [
   {
     path: '',
-    redirectTo: '/Dashboard',
+    redirectTo: '/pages/login',
     pathMatch: 'full',
   },
   {
